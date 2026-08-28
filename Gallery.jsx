@@ -14,12 +14,12 @@ window.Gallery = function Gallery({ t }) {
 
   // Riktiga foton (från /tinified), i samma ordning som gallery.slots i copy.
   const photos = [
-    "../../tinified/7.webp",        // Friterad kyckling (stor ruta)
-    "../../tinified/5.webp",        // Vårrullar
-    "../../tinified/unnamed1.webp", // Kycklingspett
-    "../../tinified/4.webp",        // Cashewnötter
-    "../../tinified/6.webp",        // Röd curry
-    "../../tinified/unnamed.webp"   // Grön curry
+    "tinified/7.webp",        // Friterad kyckling (stor ruta)
+    "tinified/5.webp",        // Vårrullar
+    "tinified/unnamed1.webp", // Kycklingspett
+    "tinified/4.webp",        // Cashewnötter
+    "tinified/6.webp",        // Röd curry
+    "tinified/unnamed.webp"   // Grön curry
   ];
 
   return (

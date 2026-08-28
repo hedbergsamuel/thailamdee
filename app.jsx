@@ -60,7 +60,7 @@ function LamDeeSite() {
     <React.Fragment>
       <NavBar
         brand={null}
-        logoSrc="../../assets/logo-sign.png"
+        logoSrc="assets/logo-sign.png"
         logoHeight={34}
         links={[
           { href: "#meny", label: t.nav.menu },

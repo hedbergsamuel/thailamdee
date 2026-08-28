@@ -15,7 +15,7 @@ import sys
 
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8199
 ROOT = os.path.dirname(os.path.abspath(__file__))
-PAGE = "/ui_kits/website/index.html"
+PAGE = "/index.html"
 
 
 def lan_ip():

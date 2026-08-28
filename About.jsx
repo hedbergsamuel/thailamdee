@@ -9,7 +9,7 @@ window.About = function About({ t }) {
         <div className="ld-about-grid" style={{ display: "grid", gridTemplateColumns: "minmax(0, 0.82fr) minmax(0, 1fr)", gap: "clamp(32px, 5vw, 80px)", alignItems: "center" }}>
           <div className="ld-about-photo">
             <Reveal>
-              <PhotoSlot tone="dark" label={t.about.imageLabel} alt={t.about.imageLabel} src="../../tinified/8.webp" ratio="4 / 5" />
+              <PhotoSlot tone="dark" label={t.about.imageLabel} alt={t.about.imageLabel} src="tinified/8.webp" ratio="4 / 5" />
             </Reveal>
           </div>
 

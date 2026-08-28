@@ -9,7 +9,7 @@ window.SiteFooter = function SiteFooter({ t, data }) {
       <div style={{ maxWidth: "var(--container)", margin: "0 auto", padding: "0 var(--gutter)", display: "flex", flexDirection: "column", gap: "var(--space-10)" }}>
         <div className="ld-foot-top" style={{ display: "flex", gap: "var(--space-10)", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "space-between" }}>
           <div className="ld-foot-brand" style={{ display: "flex", gap: "var(--space-5)", alignItems: "center", minWidth: 0 }}>
-            <img src="../../assets/logo-sign.png" alt="" aria-hidden="true" style={{ height: 64, width: "auto", flex: "0 0 auto" }} />
+            <img src="assets/logo-sign.png" alt="" aria-hidden="true" style={{ height: 64, width: "auto", flex: "0 0 auto" }} />
             <div style={{ display: "flex", flexDirection: "column", gap: 5, minWidth: 0 }}>
               <span style={{ font: "var(--type-h3)", fontSize: "var(--text-xl)", color: "var(--cream-50)" }}>{t.footer.rights}</span>
               <span style={{ font: "var(--type-body-sm)", color: "var(--text-muted)" }}>{place.address} · {place.domain}</span>

@@ -7,7 +7,7 @@ import { Button } from "../core/Button.jsx";
    de ljusa sektionerna längre ner. */
 export function NavBar({
   brand = null,
-  logoSrc = "../../assets/logo-sign.png",
+  logoSrc = "assets/logo-sign.png",
   logoHeight = 32,
   links = [],
   activeHref,

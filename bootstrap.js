@@ -16,20 +16,20 @@ window.LD_BOOT = (async function () {
   }
 
   const SOURCES = [
-    "../../components/core/Button.jsx",
-    "../../components/core/Badge.jsx",
-    "../../components/core/Card.jsx",
-    "../../components/core/Ornament.jsx",
-    "../../components/core/SectionHeading.jsx",
-    "../../components/forms/Checkbox.jsx",
-    "../../components/forms/Switch.jsx",
-    "../../components/forms/Input.jsx",
-    "../../components/forms/Select.jsx",
-    "../../components/menu/MenuItem.jsx",
-    "../../components/menu/CategoryTabs.jsx",
-    "../../components/navigation/NavBar.jsx",
-    "../../components/navigation/LangToggle.jsx",
-    "../../components/feedback/Notice.jsx"
+    "components/core/Button.jsx",
+    "components/core/Badge.jsx",
+    "components/core/Card.jsx",
+    "components/core/Ornament.jsx",
+    "components/core/SectionHeading.jsx",
+    "components/forms/Checkbox.jsx",
+    "components/forms/Switch.jsx",
+    "components/forms/Input.jsx",
+    "components/forms/Select.jsx",
+    "components/menu/MenuItem.jsx",
+    "components/menu/CategoryTabs.jsx",
+    "components/navigation/NavBar.jsx",
+    "components/navigation/LangToggle.jsx",
+    "components/feedback/Notice.jsx"
   ];
 
   const SCREENS = ["./motion.jsx", "./PhotoSlot.jsx", "./Hero.jsx", "./Featured.jsx", "./MenuSection.jsx", "./About.jsx",

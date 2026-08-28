@@ -19,7 +19,7 @@ window.Hero = function Hero({ t, lang, place, openState }) {
       }}
     >
       <img
-        src="../../assets/hero-local.png"
+        src="assets/hero-local.png"
         alt="Lam-Dee thaivagn vid Rotvik utanför Uddevalla en solig sommardag"
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "64% 50%" }}
       />

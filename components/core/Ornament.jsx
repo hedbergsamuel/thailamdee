@@ -8,7 +8,7 @@ export function Ornament({
   variant = "rule",
   width = 72,
   opacity = 1,
-  src = "../../assets/elephant-l.png",
+  src = "assets/elephant-l.png",
   flip = false,
   style
 }) {
