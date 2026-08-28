@@ -1,0 +1,49 @@
+/* Lam-Dee typografi. Varm seriff till rubriker, ren sans till brödtext.
+   Webbfonter hämtas från Google Fonts — se assets/fonts.css för self-host-varianten. */
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap");
+
+:root {
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-body: "Barlow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Skala — 1.25 major third, förankrad i 16px */
+  --text-3xs: 10px;
+  --text-2xs: 11px;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 21px;
+  --text-2xl: 26px;
+  --text-3xl: 33px;
+  --text-4xl: 42px;
+  --text-5xl: 54px;
+  --text-6xl: 70px;
+  --text-7xl: 92px;
+
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-normal: 1.45;
+  --leading-loose: 1.6;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Versaletiketter — brand-signaturen */
+  --tracking-label: 0.2em;
+  --tracking-label-tight: 0.14em;
+  --tracking-display: -0.02em;
+  --tracking-normal: 0;
+
+  /* Semantiska roller */
+  --type-display: var(--weight-semibold) var(--text-5xl) / var(--leading-tight) var(--font-display);
+  --type-h1: var(--weight-semibold) var(--text-4xl) / var(--leading-snug) var(--font-display);
+  --type-h2: var(--weight-semibold) var(--text-2xl) / var(--leading-snug) var(--font-display);
+  --type-h3: var(--weight-semibold) var(--text-xl) / var(--leading-snug) var(--font-display);
+  --type-body: var(--weight-regular) var(--text-base) / var(--leading-normal) var(--font-body);
+  --type-body-sm: var(--weight-regular) var(--text-sm) / var(--leading-normal) var(--font-body);
+  --type-price: var(--weight-semibold) var(--text-lg) / var(--leading-snug) var(--font-display);
+  --type-label: var(--weight-semibold) var(--text-2xs) / 1.2 var(--font-body);
+}

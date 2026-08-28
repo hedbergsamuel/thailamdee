@@ -1,0 +1,62 @@
+/* Färgerna är plockade direkt ur vagnens skylt: marinblå fond, guldtext,
+   guldelefanter. Krämvitt är papperssidan från affischen. */
+:root {
+  /* Marinblå — skyltens fond */
+  --navy-900: #061735;
+  --navy-800: #081F52;
+  --navy-700: #0C2C74;
+  --navy-600: #143A8E;
+  --navy-500: #2450AE;
+  --navy-100: #DDE4F2;
+
+  /* Guld — skyltens text och elefanter */
+  --gold-700: #8A6412;
+  --gold-600: #B0851F;
+  --gold-500: #D6A22E;
+  --gold-400: #EFC65C;
+  --gold-300: #F5DA95;
+  --gold-100: #FBEFD2;
+
+  /* Kräm / papper */
+  --cream-50: #FEFCF7;
+  --cream-100: #FBF7EF;
+  --cream-200: #F3EDE0;
+  --cream-300: #E5DDCA;
+
+  /* Neutralt varmgrått för brödtext på ljus botten. Brödtexten ska hålla
+     även i solljus vid luckan — håll den mörk. */
+  --ink-900: #171512;
+  --ink-700: #2E2B25;
+  --ink-500: #56503F;
+  --ink-300: #8C8471;
+
+  /* Chili — sparsamt, för stark mat och varningar */
+  --chili-600: #8E2C1F;
+  --chili-100: #F6E3DE;
+  /* Blad — glutenfritt / vegetariskt */
+  --leaf-600: #2C6A46;
+  --leaf-100: #E2EFE6;
+
+  /* --- Semantiska alias --- */
+  --surface-page: var(--navy-800);
+  --surface-page-alt: var(--cream-100);
+  --surface-card: rgba(255, 255, 255, 0.04);
+  --surface-card-light: var(--cream-50);
+  --surface-inset: var(--navy-900);
+  --surface-gold: var(--gold-500);
+
+  --text-primary: var(--cream-50);
+  --text-secondary: rgba(254, 252, 247, 0.72);
+  --text-muted: rgba(254, 252, 247, 0.5);
+  --text-accent: var(--gold-400);
+  --text-on-light: var(--ink-900);
+  --text-on-light-secondary: var(--ink-700);
+  --text-on-light-muted: var(--ink-500);
+  --text-on-gold: var(--navy-800);
+
+  --border-hairline: rgba(239, 198, 92, 0.28);
+  --border-strong: var(--gold-500);
+  --border-on-light: rgba(12, 44, 116, 0.18);
+
+  --focus-ring: var(--gold-400);
+}

@@ -1,0 +1,41 @@
+:root {
+  /* Radier — nästan raka kanter. Skylten är en rektangel. */
+  --radius-none: 0;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+  /* Knappar: modern, mjuk radie — tydligt rundad men inte piller. */
+  --radius-btn: 11px;
+
+  --border-width-hair: 1px;
+  --border-width-rule: 2px;
+  --border-width-frame: 3px;
+
+  /* Skuggor: mjuka och marinblå, aldrig svarta */
+  --shadow-sm: 0 1px 2px rgba(6, 23, 53, 0.18);
+  --shadow-md: 0 6px 18px rgba(6, 23, 53, 0.22);
+  --shadow-lg: 0 18px 44px rgba(6, 23, 53, 0.32);
+  --shadow-gold-glow: 0 0 0 1px rgba(239, 198, 92, 0.4), 0 8px 26px rgba(214, 162, 46, 0.22);
+  --shadow-inset-hair: inset 0 0 0 1px rgba(239, 198, 92, 0.22);
+
+  /* Guldram: krämgap + guldlinje, samma trick som skylten */
+  --frame-gold: 0 0 0 3px var(--navy-800), 0 0 0 4px var(--gold-500);
+
+  /* Rörelse — lugn, aldrig studsig */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 380ms;
+
+  /* Skyddsgradient över foto */
+  --scrim-left: linear-gradient(90deg, rgba(8,31,82,0.92) 0%, rgba(8,31,82,0.72) 45%, rgba(8,31,82,0.08) 100%);
+  --scrim-bottom: linear-gradient(180deg, rgba(8,31,82,0) 0%, rgba(8,31,82,0.85) 100%);
+
+  /* Mjuk variant: bara så mycket täckning som texten behöver, resten av
+     fotografiet lämnas ifred. Används i hero. */
+  --scrim-soft-left: linear-gradient(102deg, rgba(6,23,53,0.86) 0%, rgba(6,23,53,0.66) 28%, rgba(6,23,53,0.26) 54%, rgba(6,23,53,0) 78%);
+  --scrim-soft-bottom: linear-gradient(180deg, rgba(6,23,53,0) 42%, rgba(6,23,53,0.34) 100%);
+}

@@ -1,0 +1,200 @@
+<!-- @dsCard group="Website" viewport="1280x820" name="thailamdee.se" subtitle="Startsidan — hero, favoriter, meny med filter, karta, öppettider" -->
+<!-- @startingPoint section="Website" subtitle="Komplett enkelsida för foodtrucken" viewport="1280x820" -->
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Thaimat Lam-Dee – Thai take-away i Rotvik, Uddevalla</title>
+<meta name="description" content="Nylagad thaimat wokad på beställning. Lam-Dee Thai Take-Away står i Rotvik (väg 160/161) utanför Uddevalla. Öppet tis–lör – ring 072-22 93 789 och förbeställ." />
+<meta name="keywords" content="thaimat Uddevalla, thai take-away Uddevalla, foodtruck Rotvik, thaimat Rotviksbro, wok, pad thai, curry, Lam-Dee" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="author" content="Thai Take-Away Lam-Dee Chiangrai" />
+<meta name="theme-color" content="#081F52" />
+<link rel="canonical" href="https://thailamdee.se/" />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="restaurant" />
+<meta property="og:site_name" content="Thai Take-Away Lam-Dee Chiangrai" />
+<meta property="og:locale" content="sv_SE" />
+<meta property="og:title" content="Thaimat Lam-Dee – Thai take-away i Rotvik, Uddevalla" />
+<meta property="og:description" content="Nylagad thaimat wokad på beställning i Rotvik utanför Uddevalla. Öppet tis–lör. Ring 072-22 93 789 och förbeställ." />
+<meta property="og:url" content="https://thailamdee.se/" />
+<meta property="og:image" content="https://thailamdee.se/assets/hero-local.png" />
+<meta property="og:image:alt" content="Lam-Dee thaivagn vid Rotvik utanför Uddevalla" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Thaimat Lam-Dee – Thai take-away i Rotvik, Uddevalla" />
+<meta name="twitter:description" content="Nylagad thaimat wokad på beställning i Rotvik utanför Uddevalla. Ring 072-22 93 789." />
+<meta name="twitter:image" content="https://thailamdee.se/assets/hero-local.png" />
+
+<!-- Strukturerad data: lokal restaurang (grund för Google-företagskort/rich results) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Thai Take-Away Lam-Dee Chiangrai",
+  "alternateName": "Thaimat Lam-Dee",
+  "servesCuisine": "Thai",
+  "url": "https://thailamdee.se/",
+  "image": "https://thailamdee.se/assets/hero-local.png",
+  "telephone": "+46722293789",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rotvik 409",
+    "postalCode": "451 95",
+    "addressLocality": "Uddevalla",
+    "addressRegion": "Västra Götaland",
+    "addressCountry": "SE"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 58.3416, "longitude": 11.68907 },
+  "hasMenu": "https://thailamdee.se/#meny",
+  "acceptsReservations": "False",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "11:00", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "11:00", "closes": "18:00" }
+  ],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "63" }
+}
+</script>
+
+<link rel="stylesheet" href="../../styles.css?v=4" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 82px; }
+
+  /* Sidan är ljus: kräm bär innehållet, marinblått bär typografin. */
+  /* overflow-x: clip klipper bort eventuell horisontell spill utan att skapa
+     en scrollcontainer (bryter inte position: sticky), som skydd mot att en
+     enskild bred rad ger hela sidan vågrät scroll på mobil. */
+  body { background: var(--cream-100); color: var(--ink-900); overflow-x: clip; }
+  a { color: var(--navy-700); }
+  a:hover { color: var(--navy-600); }
+
+  .ld-section { padding: var(--section-y) 0; }
+
+  /* Ungefärlig header-höjd — hero dras upp under den så den blir 100vh. */
+  :root { --nav-h: 71px; }
+  .ld-hero { min-height: 100vh; min-height: 100dvh; margin-top: calc(-1 * var(--nav-h)); }
+
+  /* Infoband under hero: tre kolumner delade av hårfina guldlinjer. */
+  .ld-band-item { display: flex; flex-direction: column; gap: 5px; padding: 2px clamp(18px, 3vw, 44px); border-left: var(--border-width-hair) solid var(--border-hairline); }
+  .ld-band-item:first-child { border-left: none; padding-left: 0; }
+
+  .leaflet-container { background: var(--cream-200); font-family: var(--font-body); }
+  .leaflet-control-attribution { background: rgba(251,247,239,.9) !important; color: var(--ink-500) !important; font-size: 10px; }
+  .leaflet-control-attribution a { color: var(--gold-700) !important; }
+
+  @media (max-width: 1000px) {
+    .ld-find-grid, .ld-about-grid, .ld-menu-grid, .ld-feature-card { grid-template-columns: minmax(0, 1fr) !important; }
+    /* Staplad kolumn: bildplatsen får inte växa till en helskärms tom ruta,
+       och centreras när sektionen blir enspaltig. */
+    .ld-about-photo { max-width: 420px; margin-left: auto; margin-right: auto; width: 100%; }
+    .ld-menu-rail { position: static !important; }
+  }
+
+  @media (max-width: 900px) {
+    .ld-featured-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; }
+    .ld-featured-grid > *:first-child { grid-column: span 2 !important; }
+    .ld-reviews, .ld-hours-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  }
+
+  @media (max-width: 760px) {
+    .ld-section { padding: var(--section-y-mobile) 0; }
+    /* Hero på mobil: lägre höjd gör den höga porträttbeskärningen mindre
+       aggressiv så mer av det liggande fotot syns (mindre "inzoomat"). */
+    .ld-hero { min-height: 82vh !important; }
+    .ld-hero img { object-position: 58% 48% !important; }
+    /* Slöjorna på mobil: fotot syns fortfarande upptill, men texten nedtill
+       får en tydligt kraftigare mörkning så den läses utan ansträngning.
+       Bottentoningen bär läsbarheten; vänstertoningen ger extra djup. */
+    .ld-hero-scrim-l { background: linear-gradient(90deg, rgba(6,23,53,0.58) 0%, rgba(6,23,53,0.32) 40%, rgba(6,23,53,0.08) 70%, rgba(6,23,53,0) 90%) !important; }
+    .ld-hero-scrim-b { background: linear-gradient(0deg, rgba(6,23,53,0.85) 0%, rgba(6,23,53,0.66) 24%, rgba(6,23,53,0.34) 46%, rgba(6,23,53,0.08) 68%, rgba(6,23,53,0) 86%) !important; }
+    /* Större rubrik + tightare radavstånd gör den till hjärtat man fokuserar
+       på; övrig text ligger som stödjande lager runt den. */
+    .ld-hero-title { font-size: 34px !important; line-height: 1.04 !important; }
+    /* Lite mer luft mellan blocken riktar blicken och tar bort plottrigheten. */
+    .ld-hero-content { gap: var(--space-5) !important; }
+    /* Infobandet staplas till en kolumn med hårlinjer emellan. */
+    .ld-infoband { grid-template-columns: 1fr !important; gap: var(--space-5) !important; }
+    .ld-band-item { border-left: none !important; padding-left: 0 !important; padding-top: var(--space-5); border-top: var(--border-width-hair) solid var(--border-hairline); }
+    .ld-band-item:first-child { padding-top: 0; border-top: none; }
+    /* Informationssektionen staplas: beställningen först, anteckningarna under. */
+    .ld-info { grid-template-columns: 1fr !important; gap: var(--space-8) !important; }
+    .ld-info-notes { border-top: 1px solid var(--border-on-light); padding-top: var(--space-8); }
+    .ld-gallery { grid-template-columns: 1fr 1fr !important; grid-auto-rows: 150px !important; }
+    .ld-gallery > * { grid-column: span 1 !important; grid-row: span 1 !important; }
+    .ld-gallery > *:first-child { grid-column: span 2 !important; grid-row: span 2 !important; }
+    .ld-narrow { flex-wrap: wrap; }
+  }
+
+  @media (max-width: 620px) {
+    .ld-featured-grid { grid-template-columns: minmax(0, 1fr) !important; }
+    .ld-featured-grid > *:first-child { grid-column: span 1 !important; }
+    /* Mobilnavigation: bara skylt, språkval och ring-knapp — menyn nås via hero och fot. */
+    .ld-navlinks { display: none !important; }
+    /* Lägre header — den tog för stor del av första skärmen. */
+    .ld-nav-inner { gap: var(--space-3) !important; padding: 10px var(--gutter) !important; }
+    .ld-nav-logo { height: 30px !important; }
+    /* Skylten till vänster, språkval + ring-ikon skjuts hela vägen till höger
+       med tydligt mellanrum emellan. */
+    .ld-nav-right { margin-left: auto !important; }
+    /* Inga ring-emojier på mobil — varken i knappar (☎-ikon) eller etiketter. */
+    .ld-btn-icon, .ld-phone-emoji { display: none !important; }
+    /* Header-knappen blir en ren, kompakt telefon-ikon (SVG) utan nummer. */
+    .ld-nav-cta { min-height: 36px !important; padding: 8px 12px !important; }
+    .ld-nav-cta .ld-cta-text { display: none !important; }
+    .ld-nav-cta-phone { display: inline-flex !important; }
+    /* Heron dras upp under den nu lägre headern. */
+    .ld-hero { margin-top: -57px !important; }
+    /* Ingressen (väg 160-stycket) döljs på mobil — heron ska vara kort och
+       ren, inte en textvägg direkt vid ankomst. */
+    .ld-hero-lead { display: none !important; }
+  }
+
+  @media (max-width: 480px) {
+    .ld-nav-logo { height: 27px !important; }
+  }
+
+  @media (max-width: 620px) {
+    /* Foten staplas: skylt/namn, sociala länkar och telefon under varandra. */
+    .ld-foot-top { flex-direction: column !important; gap: var(--space-8) !important; }
+    /* Skyltloggan är en bred lockup — bredvid textkolumnen sprängde den
+       högerkanten. Staplas därför: mindre logga överst, namn/adress under. */
+    .ld-foot-brand { flex-direction: column !important; align-items: flex-start !important; gap: var(--space-4) !important; }
+    .ld-foot-brand img { height: 48px !important; max-width: 100% !important; }
+    /* Menyrätt: priserna hamnar under rättinfon som en radbrytande rad
+       istället för en trång högerkolumn som krockar med namn och badges. */
+    .ld-menuitem { flex-direction: column !important; gap: var(--space-3) !important; }
+    .ld-menuitem-prices { flex-direction: row !important; flex-wrap: wrap !important; align-items: baseline !important; text-align: left !important; gap: var(--space-2) var(--space-6) !important; }
+  }
+
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="./data.js?v=5"></script>
+<script src="./copy.js?v=5"></script>
+</head>
+<body>
+<!-- Skelett: syns bara de millisekunder det tar att kompilera skärmarna, så att
+     första bildrutan är sidan och inte en tom yta. React ersätter det. -->
+<div id="root">
+  <!-- SEO-fallback för sökmotorer utan JS. React ersätter hela #root vid render. -->
+  <div style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);border:0">
+    <h1>Thaimat Lam-Dee – Thai take-away i Rotvik, Uddevalla</h1>
+    <p>Nylagad thaimat wokad på beställning. Lam-Dee Thai Take-Away står i Rotvik vid väg 160/161 utanför Uddevalla. Öppet tisdag–lördag. Ring 072-22 93 789 för att förbeställa. Meny med wokrätter, curry, nudlar, soppor och glutenfria alternativ.</p>
+  </div>
+  <!-- Skelett: helbilds-hero med tunn logotypsrad, matchar den färdiga sidan. -->
+  <div style="position:relative;min-height:100vh;min-height:100dvh;background:var(--navy-900);overflow:hidden">
+    <img src="../../assets/hero-local.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:64% 50%" />
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,23,53,0.8) 0%,rgba(6,23,53,0.2) 45%,rgba(6,23,53,0) 75%)"></div>
+    <div style="position:absolute;top:0;left:0;right:0;padding:10px 24px">
+      <img src="../../assets/logo-sign.png" alt="Thai Take-Away Lam-Dee Chiangrai" style="height:34px;width:auto" />
+    </div>
+  </div>
+</div>
+<script src="./bootstrap.js?v=2"></script>
+</body>
+</html>
