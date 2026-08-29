@@ -68,6 +68,7 @@ function LamDeeSite() {
           { href: "#hitta", label: t.nav.find }
         ]}
         phone={DATA.place.phone}
+        callLabel={t.quick.callLabel}
         right={<LangToggle value={lang} onChange={setLang} />}
       />
       <main>
