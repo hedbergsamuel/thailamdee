@@ -6,20 +6,49 @@ window.FindUs = function FindUs({ t, data }) {
   const place = data.place;
 
   React.useEffect(() => {
-    if (!window.L || !ref.current || ref.current.dataset.ready) return;
-    ref.current.dataset.ready = "1";
-    const map = window.L.map(ref.current, { scrollWheelZoom: false, attributionControl: true }).setView([place.lat, place.lon], 13);
-    window.L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 18,
-      attribution: "&copy; OpenStreetMap"
-    }).addTo(map);
-    const icon = window.L.divIcon({
-      className: "",
-      html: '<div style="width:24px;height:24px;border-radius:50%;background:#D6A22E;border:3px solid #081F52;box-shadow:0 2px 10px rgba(6,23,53,.45)"></div>',
-      iconSize: [24, 24],
-      iconAnchor: [12, 12]
-    });
-    window.L.marker([place.lat, place.lon], { icon }).addTo(map).bindPopup("Lam-Dee · " + place.address);
+    const el = ref.current;
+    if (!el || el.dataset.ready) return undefined;
+
+    // Ladda Leaflet (CSS + JS) en gång, lazy — inte i sidhuvudet.
+    const loadLeaflet = () => {
+      if (window.__leafletLoad) return window.__leafletLoad;
+      window.__leafletLoad = new Promise((resolve) => {
+        const css = document.createElement("link");
+        css.rel = "stylesheet";
+        css.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+        document.head.appendChild(css);
+        const js = document.createElement("script");
+        js.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+        js.async = true;
+        js.onload = () => resolve(window.L);
+        document.head.appendChild(js);
+      });
+      return window.__leafletLoad;
+    };
+
+    const init = (L) => {
+      if (!L || el.dataset.ready) return;
+      el.dataset.ready = "1";
+      const map = L.map(el, { scrollWheelZoom: false, attributionControl: true }).setView([place.lat, place.lon], 13);
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, attribution: "&copy; OpenStreetMap" }).addTo(map);
+      const icon = L.divIcon({
+        className: "",
+        html: '<div style="width:24px;height:24px;border-radius:50%;background:#D6A22E;border:3px solid #081F52;box-shadow:0 2px 10px rgba(6,23,53,.45)"></div>',
+        iconSize: [24, 24],
+        iconAnchor: [12, 12]
+      });
+      L.marker([place.lat, place.lon], { icon }).addTo(map).bindPopup("Lam-Dee · " + place.address);
+    };
+
+    // Init först när kartan är nära vyn — sparar ~150 kB på första laddningen.
+    const obs = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        obs.disconnect();
+        loadLeaflet().then(init);
+      }
+    }, { rootMargin: "300px" });
+    obs.observe(el);
+    return () => obs.disconnect();
   }, [place.lat, place.lon, place.address]);
 
   const card = {
