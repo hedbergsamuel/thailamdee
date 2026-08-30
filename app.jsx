@@ -5,6 +5,7 @@ function LamDeeSite() {
   const DATA = window.LD_DATA;
   const COPY = window.LD_COPY;
   const { NavBar, LangToggle } = window.LD_DS;
+  const Reveal = window.Reveal;
   const [lang, setLang] = React.useState("sv");
   const t = COPY[lang];
 
@@ -35,7 +36,7 @@ function LamDeeSite() {
   const contactBand = (
     <section id="kontakt" className="ld-section" style={{ background: "var(--navy-800)", borderTop: "var(--border-width-hair) solid var(--border-hairline)", borderBottom: "var(--border-width-hair) solid var(--border-hairline)" }}>
       <div style={{ maxWidth: "var(--container)", margin: "0 auto", padding: "0 var(--gutter)" }}>
-        <div className="ld-infoband" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}>
+        <Reveal><div className="ld-infoband" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}>
           <div className="ld-band-item">
             <span style={bandLabel}><span className="ld-phone-emoji" aria-hidden="true">☎ </span>{t.quick.callLabel}</span>
             <a href={DATA.place.phoneHref} style={{ ...bandValue, whiteSpace: "nowrap" }}>{DATA.place.phone}</a>
@@ -51,7 +52,7 @@ function LamDeeSite() {
             <span style={bandValue}>{DATA.place.address}</span>
             <a href="#hitta" style={{ ...bandSub, color: "var(--gold-300)", textDecoration: "none" }}>{t.find.directions} →</a>
           </div>
-        </div>
+        </div></Reveal>
       </div>
     </section>
   );

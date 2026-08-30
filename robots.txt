@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Ingen anledning att blockera AI-crawlers – de får gärna citera meny och öppettider.
+Sitemap: https://thailamdee.se/sitemap.xml

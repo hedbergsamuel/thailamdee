@@ -2,6 +2,7 @@
    Ljus sektion — kartan är ljus, så kortet ska vara det också. */
 window.FindUs = function FindUs({ t, data }) {
   const { Button } = window.LD_DS;
+  const Reveal = window.Reveal;
   const ref = React.useRef(null);
   const place = data.place;
 
@@ -15,10 +16,10 @@ window.FindUs = function FindUs({ t, data }) {
       window.__leafletLoad = new Promise((resolve) => {
         const css = document.createElement("link");
         css.rel = "stylesheet";
-        css.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+        css.href = "vendor/leaflet.css";
         document.head.appendChild(css);
         const js = document.createElement("script");
-        js.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+        js.src = "vendor/leaflet.js";
         js.async = true;
         js.onload = () => resolve(window.L);
         document.head.appendChild(js);
@@ -65,17 +66,19 @@ window.FindUs = function FindUs({ t, data }) {
   return (
     <section id="hitta" className="ld-section" style={{ background: "var(--cream-200)" }}>
       <div style={{ maxWidth: "var(--container)", margin: "0 auto", padding: "0 var(--gutter)", display: "flex", flexDirection: "column", gap: "var(--space-10)" }}>
-        <div style={{ display: "flex", gap: "var(--space-8)", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap" }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)", maxWidth: "30ch" }}>
-            <span style={label}>{t.find.eyebrow}</span>
-            <h2 style={{ fontSize: "clamp(26px, 3vw, 42px)", lineHeight: 1.08, letterSpacing: "-0.022em", color: "var(--navy-700)" }}>
-              {t.find.title}
-            </h2>
+        <Reveal>
+          <div style={{ display: "flex", gap: "var(--space-8)", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)", maxWidth: "30ch" }}>
+              <span style={label}>{t.find.eyebrow}</span>
+              <h2 style={{ fontSize: "clamp(26px, 3vw, 42px)", lineHeight: 1.08, letterSpacing: "-0.022em", color: "var(--navy-700)" }}>
+                {t.find.title}
+              </h2>
+            </div>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-lg)", fontWeight: "var(--weight-medium)", lineHeight: 1.55, color: "var(--ink-700)", maxWidth: "40ch" }}>
+              {t.find.lead}
+            </p>
           </div>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-lg)", fontWeight: "var(--weight-medium)", lineHeight: 1.55, color: "var(--ink-700)", maxWidth: "40ch" }}>
-            {t.find.lead}
-          </p>
-        </div>
+        </Reveal>
 
         <div className="ld-find-grid" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.4fr) minmax(280px, 1fr)", gap: "var(--space-6)", alignItems: "stretch" }}>
           <div style={{ position: "relative", minHeight: 420, borderRadius: "var(--radius-lg)", overflow: "hidden", border: "var(--border-width-hair) solid var(--border-on-light)", background: "var(--cream-100)" }}>
