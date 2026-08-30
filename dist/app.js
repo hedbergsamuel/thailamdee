@@ -1604,7 +1604,7 @@ LD_DS["Notice"] = function (React, __DS) {
       }
     }, /*#__PURE__*/React.createElement("picture", null, /*#__PURE__*/React.createElement("source", {
       type: "image/webp",
-      srcSet: "assets/hero-local-900.webp 900w, assets/hero-local.webp 1400w",
+      srcSet: "assets/hero-local-900.webp 900w, assets/hero-local.webp 1672w",
       sizes: "100vw"
     }), /*#__PURE__*/React.createElement("img", {
       src: "assets/hero-local.jpg",

@@ -21,7 +21,7 @@ window.Hero = function Hero({ t, lang, place, openState }) {
       <picture>
         <source
           type="image/webp"
-          srcSet="assets/hero-local-900.webp 900w, assets/hero-local.webp 1400w"
+          srcSet="assets/hero-local-900.webp 900w, assets/hero-local.webp 1672w"
           sizes="100vw"
         />
         <img
