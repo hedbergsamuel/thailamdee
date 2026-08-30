@@ -2,6 +2,7 @@
    höger. Filtrerade rätter gråas ut, tas inte bort. */
 window.MenuSection = function MenuSection({ t, lang, data }) {
   const { CategoryTabs, MenuItem, Switch, Notice, Badge } = window.LD_DS;
+  const Reveal = window.Reveal;
   const [cat, setCat] = React.useState("all");
   const [onlyGf, setOnlyGf] = React.useState(false);
 
@@ -25,17 +26,19 @@ window.MenuSection = function MenuSection({ t, lang, data }) {
   return (
     <section id="meny" className="ld-section" style={{ background: "var(--cream-100)" }}>
       <div style={{ maxWidth: "var(--container)", margin: "0 auto", padding: "0 var(--gutter)", display: "flex", flexDirection: "column", gap: "var(--space-10)" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)", maxWidth: "44ch" }}>
-          <span style={{ font: "var(--type-label)", letterSpacing: "var(--tracking-label)", textTransform: "uppercase", color: "var(--gold-700)" }}>
-            {t.menu.eyebrow}
-          </span>
-          <h2 style={{ fontSize: "clamp(26px, 3vw, 42px)", lineHeight: 1.08, letterSpacing: "-0.022em", color: "var(--navy-700)" }}>
-            {t.menu.title}
-          </h2>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-lg)", fontWeight: "var(--weight-medium)", lineHeight: 1.55, color: "var(--ink-700)" }}>
-            {t.menu.lead}
-          </p>
-        </div>
+        <Reveal>
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)", maxWidth: "44ch" }}>
+            <span style={{ font: "var(--type-label)", letterSpacing: "var(--tracking-label)", textTransform: "uppercase", color: "var(--gold-700)" }}>
+              {t.menu.eyebrow}
+            </span>
+            <h2 style={{ fontSize: "clamp(26px, 3vw, 42px)", lineHeight: 1.08, letterSpacing: "-0.022em", color: "var(--navy-700)" }}>
+              {t.menu.title}
+            </h2>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-lg)", fontWeight: "var(--weight-medium)", lineHeight: 1.55, color: "var(--ink-700)" }}>
+              {t.menu.lead}
+            </p>
+          </div>
+        </Reveal>
 
         <div className="ld-menu-grid" style={{ display: "grid", gridTemplateColumns: "minmax(0, 250px) minmax(0, 1fr)", gap: "var(--space-10)", alignItems: "start" }}>
           <aside className="ld-menu-rail" style={{ position: "sticky", top: 92, display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
@@ -71,18 +74,19 @@ window.MenuSection = function MenuSection({ t, lang, data }) {
                 padding: "var(--space-4) clamp(20px, 3vw, 40px) var(--space-6)"
               }}
             >
-              {visible.map((d) => (
-                <MenuItem
-                  key={d.n}
-                  onLight
-                  number={d.n}
-                  name={(lang === "sv" ? d.name : d.nameEn) + ((lang === "sv" ? d.note : d.noteEn) ? " (" + (lang === "sv" ? d.note : d.noteEn) + ")" : "")}
-                  ingredients={lang === "sv" ? d.ing : d.ingEn}
-                  badges={badgesFor(d)}
-                  prices={lang === "sv" ? d.prices : d.pricesEn}
-                  dimmed={onlyGf && !d.gf}
-                  footnote={onlyGf && !d.gf ? t.menu.dimmedNote : null}
-                />
+              {visible.map((d, i) => (
+                <Reveal key={d.n} delay={Math.min(i * 45, 360)} y={10}>
+                  <MenuItem
+                    onLight
+                    number={d.n}
+                    name={(lang === "sv" ? d.name : d.nameEn) + ((lang === "sv" ? d.note : d.noteEn) ? " (" + (lang === "sv" ? d.note : d.noteEn) + ")" : "")}
+                    ingredients={lang === "sv" ? d.ing : d.ingEn}
+                    badges={badgesFor(d)}
+                    prices={lang === "sv" ? d.prices : d.pricesEn}
+                    dimmed={onlyGf && !d.gf}
+                    footnote={onlyGf && !d.gf ? t.menu.dimmedNote : null}
+                  />
+                </Reveal>
               ))}
 
               <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-3)", alignItems: "baseline", paddingTop: "var(--space-6)" }}>

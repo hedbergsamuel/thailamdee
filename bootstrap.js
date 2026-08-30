@@ -39,8 +39,11 @@ window.LD_BOOT = (async function () {
     .replace(/^\s*import[^;]*;\s*$/gm, "")
     .replace(/^\s*export\s+/gm, "");
 
-  // no-store: läs alltid färsk källa, så redigeringar syns direkt utan hård omladdning.
-  const fetchSrc = async (url) => strip(await (await fetch(url, { cache: "no-store" })).text());
+  // Låt webbläsare/CDN cacha komponentkällorna (snabbare upprepade besök).
+  // Bumpa LD_VER när du ändrat en .jsx-fil så att den nya versionen hämtas.
+  const LD_VER = "6";
+  const bust = (url) => url + (url.includes("?") ? "&" : "?") + "v=" + LD_VER;
+  const fetchSrc = async (url) => strip(await (await fetch(bust(url))).text());
 
   let DS = fromBundle();
   if (!DS) {

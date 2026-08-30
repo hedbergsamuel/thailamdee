@@ -18,11 +18,24 @@ window.Hero = function Hero({ t, lang, place, openState }) {
         background: "var(--navy-900)"
       }}
     >
-      <img
-        src="assets/hero-local.jpg"
-        alt="Lam-Dee thaivagn vid Rotvik utanför Uddevalla en solig sommardag"
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "64% 50%" }}
-      />
+      <picture>
+        <source
+          type="image/webp"
+          srcSet="assets/hero-local-900.webp 900w, assets/hero-local.webp 1400w"
+          sizes="100vw"
+        />
+        <img
+          src="assets/hero-local.jpg"
+          srcSet="assets/hero-local-900.jpg 900w, assets/hero-local.jpg 1400w"
+          sizes="100vw"
+          width={1400}
+          height={787}
+          alt="Lam-Dee thaivagn vid Rotvik utanför Uddevalla en solig sommardag"
+          fetchpriority="high"
+          decoding="async"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "64% 50%" }}
+        />
+      </picture>
       {/* Vänsterslöja för läsbarhet — fotot ska lysa igenom, men texten nere
          till vänster ligger mot ljust grus/bord, så vänster- och bottenslöjan
          bär tillräckligt med kontrast. Vagnen till höger lämnas nästan ifred. */}

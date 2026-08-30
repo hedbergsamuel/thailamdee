@@ -7,11 +7,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thaimat Lam-Dee – Thai take-away i Rotvik, Uddevalla</title>
 <meta name="description" content="Nylagad thaimat wokad på beställning. Lam-Dee Thai Take-Away står i Rotvik (väg 160/161) utanför Uddevalla. Öppet tis–lör – ring 072-22 93 789 och förbeställ." />
-<meta name="keywords" content="thaimat Uddevalla, thai take-away Uddevalla, foodtruck Rotvik, thaimat Rotviksbro, wok, pad thai, curry, Lam-Dee" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="author" content="Thai Take-Away Lam-Dee Chiangrai" />
 <meta name="theme-color" content="#081F52" />
 <link rel="canonical" href="https://thailamdee.se/" />
+
+<!-- Favicon / ikoner. Byt gärna favicon-*.png mot enbart guld­elefanten ur skylten. -->
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
 <!-- Open Graph / social -->
 <meta property="og:type" content="restaurant" />
@@ -21,54 +25,164 @@
 <meta property="og:description" content="Nylagad thaimat wokad på beställning i Rotvik utanför Uddevalla. Öppet tis–lör. Ring 072-22 93 789 och förbeställ." />
 <meta property="og:url" content="https://thailamdee.se/" />
 <meta property="og:image" content="https://thailamdee.se/assets/hero-local.jpg" />
+<meta property="og:image:width" content="1400" />
+<meta property="og:image:height" content="787" />
 <meta property="og:image:alt" content="Lam-Dee thaivagn vid Rotvik utanför Uddevalla" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Thaimat Lam-Dee – Thai take-away i Rotvik, Uddevalla" />
 <meta name="twitter:description" content="Nylagad thaimat wokad på beställning i Rotvik utanför Uddevalla. Ring 072-22 93 789." />
 <meta name="twitter:image" content="https://thailamdee.se/assets/hero-local.jpg" />
 
-<!-- Strukturerad data: lokal restaurang (grund för Google-företagskort/rich results) -->
+<!-- Strukturerad data: @graph med verksamhet (Restaurant/LocalBusiness), meny och webbplats.
+     Namnet matchar Google-företagsprofilen. Omdömen speglar dem som visas på sidan. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["Restaurant", "LocalBusiness"],
-  "@id": "https://thailamdee.se/#business",
-  "name": "Thai Take-Away Lam-Dee Chiangrai",
-  "alternateName": "Thaimat Lam-Dee",
-  "servesCuisine": "Thai",
-  "url": "https://thailamdee.se/",
-  "sameAs": [
-    "https://share.google/W7HzhvTvDejxHSsiU",
-    "https://www.google.com/search?kgmid=/g/11xghpgrc5",
-    "https://www.google.com/maps/search/?api=1&query=Thaimat+Lam+dee+Rotviksbro"
-  ],
-  "image": "https://thailamdee.se/assets/hero-local.jpg",
-  "telephone": "+46722293789",
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Rotvik 409",
-    "postalCode": "451 95",
-    "addressLocality": "Uddevalla",
-    "addressRegion": "Västra Götaland",
-    "addressCountry": "SE"
-  },
-  "geo": { "@type": "GeoCoordinates", "latitude": 58.3416, "longitude": 11.68907 },
-  "hasMenu": "https://thailamdee.se/#meny",
-  "acceptsReservations": "False",
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "11:00", "closes": "20:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "11:00", "closes": "18:00" }
-  ],
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "63" }
+  "@graph": [
+    {
+      "@type": ["Restaurant", "LocalBusiness"],
+      "@id": "https://thailamdee.se/#business",
+      "name": "Thai Take-Away Lam-Dee Chiangrai",
+      "alternateName": "Thaimat Lam-Dee",
+      "description": "Foodtruck med nylagad thaimat wokad på beställning, vid väg 160/161 i Rotviksbro utanför Uddevalla. Wokrätter, curry, nudlar, soppor och glutenfria alternativ. Öppet tisdag–lördag.",
+      "servesCuisine": "Thai",
+      "url": "https://thailamdee.se/",
+      "sameAs": [
+        "https://share.google/W7HzhvTvDejxHSsiU",
+        "https://www.google.com/search?kgmid=/g/11xghpgrc5",
+        "https://www.google.com/maps/search/?api=1&query=Thaimat+Lam+dee+Rotviksbro"
+      ],
+      "image": [
+        "https://thailamdee.se/assets/hero-local.jpg"
+      ],
+      "logo": "https://thailamdee.se/assets/logo-sign.png",
+      "telephone": "+46722293789",
+      "priceRange": "109–169 kr",
+      "currenciesAccepted": "SEK",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rotvik 409",
+        "postalCode": "451 95",
+        "addressLocality": "Uddevalla",
+        "addressRegion": "Västra Götaland",
+        "addressCountry": "SE"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 58.3416, "longitude": 11.68907 },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Thaimat+Lam+dee+Rotviksbro",
+      "areaServed": [
+        { "@type": "City", "name": "Uddevalla" },
+        { "@type": "Place", "name": "Rotviksbro" },
+        { "@type": "Place", "name": "Högås" },
+        { "@type": "Place", "name": "Ljungskile" }
+      ],
+      "hasMenu": { "@id": "https://thailamdee.se/#menu" },
+      "acceptsReservations": "False",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "11:00", "closes": "20:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "11:00", "closes": "18:00" }
+      ],
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "63", "bestRating": "5", "worstRating": "1" },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Arvid Hellstrand" },
+          "datePublished": "2026-08-01",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
+          "reviewBody": "Gott och trevligt. Det är starkt ”på riktigt” om man ber om det, vilket jag uppskattade starkt."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Edvin Börjesson" },
+          "datePublished": "2026-08-01",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
+          "reviewBody": "Riktigt bra mat, kanske den bästa thaimaten jag ätit. Bra portioner, fräscht kök och väldigt trevlig personal."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Tomas Zeljko" },
+          "datePublished": "2025-07-01",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
+          "reviewBody": "Väldigt gott. Testade fyra av deras rätter och kommer absolut handla här igen. Maten är stark enligt thailändsk standard."
+        }
+      ]
+    },
+    {
+      "@type": "Menu",
+      "@id": "https://thailamdee.se/#menu",
+      "name": "Meny – Thaimat Lam-Dee",
+      "inLanguage": "sv-SE",
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Friterat",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Vårrullar", "description": "Fläskfärs, räkor eller vegetariskt — välj fyllning. 3, 5 eller 7 st.", "offers": [{ "@type": "Offer", "priceCurrency": "SEK", "price": "109" }, { "@type": "Offer", "priceCurrency": "SEK", "price": "129" }, { "@type": "Offer", "priceCurrency": "SEK", "price": "149" }] },
+            { "@type": "MenuItem", "name": "Friterad kyckling", "description": "Kyckling, 5 eller 7 st.", "offers": [{ "@type": "Offer", "priceCurrency": "SEK", "price": "139" }, { "@type": "Offer", "priceCurrency": "SEK", "price": "149" }] },
+            { "@type": "MenuItem", "name": "Kycklingspett", "description": "Kyckling, 5 eller 7 st.", "offers": [{ "@type": "Offer", "priceCurrency": "SEK", "price": "139" }, { "@type": "Offer", "priceCurrency": "SEK", "price": "159" }] },
+            { "@type": "MenuItem", "name": "Friterade räkor", "description": "Räkor, 5 eller 7 st.", "offers": [{ "@type": "Offer", "priceCurrency": "SEK", "price": "139" }, { "@type": "Offer", "priceCurrency": "SEK", "price": "159" }] }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Wokrätter",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Pad Medmamuang (cashewnötter)", "description": "Salladslök, paprika, morot, ostronsåsblandning, cashewnötter.", "offers": { "@type": "AggregateOffer", "priceCurrency": "SEK", "lowPrice": "139", "highPrice": "159", "offerCount": "4" } },
+            { "@type": "MenuItem", "name": "Pad Ostronsås", "description": "Broccoli, paprika, purjolök, vitkål, zucchini, morötter, gul lök, ostronsås.", "offers": { "@type": "AggregateOffer", "priceCurrency": "SEK", "lowPrice": "139", "highPrice": "169", "offerCount": "5" } },
+            { "@type": "MenuItem", "name": "Pad Kapao", "description": "Hot basilika, chili, vitlök, bambuskott, morötter, gul lök.", "offers": { "@type": "AggregateOffer", "priceCurrency": "SEK", "lowPrice": "139", "highPrice": "169", "offerCount": "5" } },
+            { "@type": "MenuItem", "name": "Pad Preuwan (sötsursås)", "description": "Paprika, gul lök, morötter, gurka, sötsursås.", "offers": { "@type": "AggregateOffer", "priceCurrency": "SEK", "lowPrice": "139", "highPrice": "169", "offerCount": "5" } },
+            { "@type": "MenuItem", "name": "Pad Pak Raummit", "description": "Broccoli, vitkål, morötter, paprika, zucchini, minimajs, gul lök.", "offers": { "@type": "AggregateOffer", "priceCurrency": "SEK", "lowPrice": "139", "highPrice": "169", "offerCount": "5" } }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Grytor & curry",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Keang Phed (röd curry)", "description": "Kokosmjölk, bambuskott, morötter, paprika, zucchini, limeblad, söt basilika, röd currypasta.", "suitableForDiet": "https://schema.org/GlutenFreeDiet", "offers": { "@type": "AggregateOffer", "priceCurrency": "SEK", "lowPrice": "139", "highPrice": "159", "offerCount": "4" } },
+            { "@type": "MenuItem", "name": "Keang Kheowan (grön curry)", "description": "Kokosmjölk, bambuskott, zucchini, limeblad, söt basilika, paprika, grön currypasta.", "suitableForDiet": "https://schema.org/GlutenFreeDiet", "offers": { "@type": "AggregateOffer", "priceCurrency": "SEK", "lowPrice": "139", "highPrice": "159", "offerCount": "4" } }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Nudlar & ris",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Pad Thai", "description": "Risnudlar, ägg, morötter, purjolök, böngroddar, jordnötter. Innehåller en liten mängd gluten.", "offers": { "@type": "AggregateOffer", "priceCurrency": "SEK", "lowPrice": "139", "highPrice": "159", "offerCount": "4" } },
+            { "@type": "MenuItem", "name": "Pad Ägg Nudlar", "description": "Äggnudlar, broccoli, morötter, vitkål, purjolök.", "offers": { "@type": "AggregateOffer", "priceCurrency": "SEK", "lowPrice": "139", "highPrice": "159", "offerCount": "4" } },
+            { "@type": "MenuItem", "name": "Stekt ris", "description": "Ris, ägg, morötter, ärter, salladslök, gul lök.", "offers": { "@type": "AggregateOffer", "priceCurrency": "SEK", "lowPrice": "139", "highPrice": "159", "offerCount": "4" } }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Soppor",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Tom Yum Kung", "description": "Citrongräs, galangal, champinjoner, limeblad, lime, chilipasta, koriander.", "suitableForDiet": "https://schema.org/GlutenFreeDiet", "offers": { "@type": "AggregateOffer", "priceCurrency": "SEK", "lowPrice": "139", "highPrice": "169", "offerCount": "4" } },
+            { "@type": "MenuItem", "name": "Tom Kha Gai", "description": "Kokosmjölk, galangal, champinjoner, citrongräs, limeblad, koriander.", "suitableForDiet": "https://schema.org/GlutenFreeDiet", "offers": { "@type": "AggregateOffer", "priceCurrency": "SEK", "lowPrice": "139", "highPrice": "159", "offerCount": "3" } }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Spicy special",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Laab", "description": "Kycklingfärs, chilipeppar, salladslök, krossat ris, rödlök, koriander, mynta.", "suitableForDiet": "https://schema.org/GlutenFreeDiet", "offers": { "@type": "Offer", "priceCurrency": "SEK", "price": "139" } }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://thailamdee.se/#website",
+      "url": "https://thailamdee.se/",
+      "name": "Thaimat Lam-Dee",
+      "inLanguage": "sv-SE",
+      "publisher": { "@id": "https://thailamdee.se/#business" }
+    }
+  ]
 }
 </script>
 
 <!-- Resurstips: värm upp anslutningar och prioritera hero-bilden (LCP). -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://unpkg.com" crossorigin />
-<link rel="preload" as="image" href="assets/hero-local.jpg" fetchpriority="high" />
+<link rel="preload" as="image" type="image/webp" href="assets/hero-local.webp" imagesrcset="assets/hero-local-900.webp 900w, assets/hero-local.webp 1400w" imagesizes="100vw" fetchpriority="high" />
 <!-- Fonter laddas direkt (parallellt) istället för via @import-kedja i CSS. -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" />
 <link rel="stylesheet" href="styles.css?v=4" />
@@ -83,6 +197,10 @@
   body { background: var(--cream-100); color: var(--ink-900); overflow-x: clip; }
   a { color: var(--navy-700); }
   a:hover { color: var(--navy-600); }
+
+  /* Crawlbar textkopia av sidan för sökmotorer/AI som inte kör JavaScript.
+     Göms visuellt men läses av crawlers; React ersätter hela #root vid render. */
+  .ld-seo-fallback { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
   .ld-section { padding: var(--section-y) 0; }
 
@@ -181,33 +299,139 @@
     .ld-menuitem-prices { flex-direction: row !important; flex-wrap: wrap !important; align-items: baseline !important; text-align: left !important; gap: var(--space-2) var(--space-6) !important; }
   }
 
+  /* ---------------------------------------------------------------------------
+     Diskret rörelse. Allt här körs BARA om besökaren inte bett om mindre
+     rörelse (prefers-reduced-motion). Ingenting påverkar layout/CLS — bara
+     opacity/transform/färg. Reveal-in-i-vy sköts i JS (motion.jsx).
+     --------------------------------------------------------------------------- */
+  a { transition: color 150ms ease; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes ld-fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @keyframes ld-fade-down { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: none; } }
+
+    /* Header glider ner en gång vid laddning. */
+    .ld-nav-inner { animation: ld-fade-down 520ms var(--ease-out) both; }
+
+    /* Hero-innehållet stiger in, block för block (kort kaskad, rör inte LCP nämnvärt). */
+    .ld-hero-content > * { animation: ld-fade-up 560ms var(--ease-out) both; }
+    .ld-hero-content > *:nth-child(2) { animation-delay: 70ms; }
+    .ld-hero-content > *:nth-child(3) { animation-delay: 140ms; }
+    .ld-hero-content > *:nth-child(4) { animation-delay: 210ms; }
+    .ld-hero-content > *:nth-child(5) { animation-delay: 280ms; }
+    .ld-hero-content > *:nth-child(6) { animation-delay: 340ms; }
+
+    /* Galleri: långsam, mjuk inzoomning på hover. Ramen klipper (PhotoSlot har overflow:hidden). */
+    .ld-gallery img { transition: transform 760ms var(--ease-out); }
+    .ld-gallery img:hover { transform: scale(1.05); }
+
+    /* Menyrader: hårfin guldmarkering och en aning indrag när musen dras längs sedeln. */
+    .ld-menuitem { transition: background-color 180ms ease, padding-left 180ms var(--ease-out); border-radius: var(--radius-sm); }
+    .ld-menuitem:hover { background-color: rgba(214, 162, 46, 0.07); padding-left: 8px; }
+  }
+
 </style>
-<!-- defer: låt HTML:en (och hero-skelettet) rita klart FÖRST, kör tunga
-     skript efteråt i ordning. Leaflet laddas lazy i FindUs, inte här. -->
-<script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-<script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-<script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script defer src="./data.js?v=5"></script>
-<script defer src="./copy.js?v=5"></script>
+<!-- defer: låt HTML:en (och hero-skelettet) rita klart FÖRST, kör skripten
+     efteråt i ordning. Allt ligger lokalt — ingen extern CDN, ingen Babel i
+     webbläsaren. dist/app.js byggs av ./build.sh från .jsx-källorna. -->
+<script defer src="./vendor/react.production.min.js"></script>
+<script defer src="./vendor/react-dom.production.min.js"></script>
+<script defer src="./data.js?v=8"></script>
+<script defer src="./copy.js?v=8"></script>
+<script defer src="./dist/app.js?v=8"></script>
 </head>
 <body>
 <!-- Skelett: syns bara de millisekunder det tar att kompilera skärmarna, så att
      första bildrutan är sidan och inte en tom yta. React ersätter det. -->
 <div id="root">
-  <!-- SEO-fallback för sökmotorer utan JS. React ersätter hela #root vid render. -->
-  <div style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);border:0">
+  <!-- Crawlbar textkopia för sökmotorer/AI utan JS. Speglar det renderade
+       innehållet 1:1. React ersätter hela #root vid render. -->
+  <div class="ld-seo-fallback">
     <h1>Thaimat Lam-Dee – Thai take-away i Rotvik, Uddevalla</h1>
-    <p>Nylagad thaimat wokad på beställning. Lam-Dee Thai Take-Away står i Rotvik vid väg 160/161 utanför Uddevalla. Öppet tisdag–lördag. Ring 072-22 93 789 för att förbeställa. Meny med wokrätter, curry, nudlar, soppor och glutenfria alternativ.</p>
+    <p>Nylagad thaimat wokad på beställning. Thai Take-Away Lam-Dee Chiangrai är en foodtruck som står i Rotvik vid väg 160/161 i Rotviksbro, Högås, utanför Uddevalla. Varje rätt wokas när du beställt den – du väljer protein (tofu, kyckling, biff, tigerräkor eller skaldjursmix) och hur stark du vill ha den. Väntetid 10–15 minuter. Ring 072-22 93 789 och förbeställ, eller gå fram till luckan. Öppet tisdag–lördag, stängt söndag och måndag.</p>
+
+    <h2>Om oss</h2>
+    <p>En vagn, en wok, hög värme hela dagen. Grönsakerna skärs på plats, woken går på hög värme från elva till stängning, och din rätt lagas först när du beställt den. Ingenting står varmt. Ris eller äggnudlar ingår i alla maträtter. Fem styrkegrader, från lite stark till super stark.</p>
+
+    <h2>Meny – 17 rätter, välj protein till varje</h2>
+    <p>Priset följer proteinet. Ris eller äggnudlar ingår i alla maträtter. Extra tillbehör: ris 20 kr, äggnudlar 20 kr, stekt ägg 10 kr, läsk 25 kr, dippsås 10 kr.</p>
+
+    <h3>Friterat</h3>
+    <ul>
+      <li>Vårrullar – fläskfärs, räkor eller vegetariskt, välj fyllning. 3 st 109 kr, 5 st 129 kr, 7 st 149 kr.</li>
+      <li>Friterad kyckling – 5 st 139 kr, 7 st 149 kr. Barnvänligt.</li>
+      <li>Kycklingspett – 5 st 139 kr, 7 st 159 kr. Barnvänligt.</li>
+      <li>Friterade räkor – 5 st 139 kr, 7 st 159 kr.</li>
+    </ul>
+
+    <h3>Wokrätter</h3>
+    <ul>
+      <li>Pad Medmamuang (cashewnötter) – salladslök, paprika, morot, ostronsåsblandning, cashewnötter. 139–159 kr. Kockens val.</li>
+      <li>Pad Ostronsås – broccoli, paprika, purjolök, vitkål, zucchini, morötter, gul lök, ostronsås. 139–169 kr.</li>
+      <li>Pad Kapao – hot basilika, chili, vitlök, bambuskott, morötter, gul lök. 139–169 kr.</li>
+      <li>Pad Preuwan (sötsursås) – paprika, gul lök, morötter, gurka, sötsursås. 139–169 kr.</li>
+      <li>Pad Pak Raummit – broccoli, vitkål, morötter, paprika, zucchini, minimajs, gul lök. 139–169 kr.</li>
+    </ul>
+
+    <h3>Grytor &amp; curry</h3>
+    <ul>
+      <li>Keang Phed (röd curry) – kokosmjölk, bambuskott, morötter, paprika, zucchini, limeblad, söt basilika, röd currypasta. 139–159 kr. Glutenfritt. Kockens val.</li>
+      <li>Keang Kheowan (grön curry) – kokosmjölk, bambuskott, zucchini, limeblad, söt basilika, paprika, grön currypasta. 139–159 kr. Glutenfritt. Kockens val.</li>
+    </ul>
+
+    <h3>Nudlar &amp; ris</h3>
+    <ul>
+      <li>Pad Thai – risnudlar, ägg, morötter, purjolök, böngroddar, jordnötter. 139–159 kr. Innehåller en liten mängd gluten. Kockens val.</li>
+      <li>Pad Ägg Nudlar – äggnudlar, broccoli, morötter, vitkål, purjolök. 139–159 kr. Barnvänligt.</li>
+      <li>Stekt ris – ris, ägg, morötter, ärter, salladslök, gul lök. 139–159 kr. Barnvänligt.</li>
+    </ul>
+
+    <h3>Soppor</h3>
+    <ul>
+      <li>Tom Yum Kung – citrongräs, galangal, champinjoner, limeblad, lime, chilipasta, koriander. 139–169 kr. Glutenfritt.</li>
+      <li>Tom Kha Gai – kokosmjölk, galangal, champinjoner, citrongräs, limeblad, koriander. 139–159 kr. Glutenfritt.</li>
+    </ul>
+
+    <h3>Spicy special</h3>
+    <ul>
+      <li>Laab – kycklingfärs, chilipeppar, salladslök, krossat ris, rödlök, koriander, mynta. 139 kr. Glutenfritt.</li>
+    </ul>
+    <p>Pad Thai innehåller en liten mängd gluten. Säg alltid till i luckan om du har en allergi – vi wokar i samma pannor.</p>
+
+    <h2>Öppettider</h2>
+    <ul>
+      <li>Tisdag–fredag: 11.00–20.00</li>
+      <li>Lördag: 11.00–18.00</li>
+      <li>Söndag–måndag: stängt</li>
+    </ul>
+
+    <h2>Hitta hit</h2>
+    <address>
+      Thai Take-Away Lam-Dee Chiangrai, Rotvik 409, 451 95 Uddevalla. Vid väg 160/161 i Rotviksbro, Högås.
+      Telefon: <a href="tel:+46722293789">072-22 93 789</a>.
+    </address>
+    <p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=58.3416,11.68907">Vägbeskrivning via Google Maps</a>. Enkelt att svänga in, gott om plats att parkera.</p>
+
+    <h2>Omdömen</h2>
+    <p>4,8 av 5 i snitt, 63 omdömen på Google.</p>
+    <ul>
+      <li>Arvid Hellstrand (augusti 2026), 5/5: ”Gott och trevligt. Det är starkt på riktigt om man ber om det, vilket jag uppskattade starkt.”</li>
+      <li>Edvin Börjesson (augusti 2026), 5/5: ”Riktigt bra mat, kanske den bästa thaimaten jag ätit. Bra portioner, fräscht kök och väldigt trevlig personal.”</li>
+      <li>Tomas Zeljko (sommaren 2025), 5/5: ”Väldigt gott. Testade fyra av deras rätter och kommer absolut handla här igen. Maten är stark enligt thailändsk standard.”</li>
+    </ul>
   </div>
+
   <!-- Skelett: helbilds-hero med tunn logotypsrad, matchar den färdiga sidan. -->
   <div style="position:relative;min-height:100vh;min-height:100dvh;background:var(--navy-900);overflow:hidden">
-    <img src="assets/hero-local.jpg" alt="" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:64% 50%" />
+    <picture>
+      <source type="image/webp" srcset="assets/hero-local-900.webp 900w, assets/hero-local.webp 1400w" sizes="100vw" />
+      <img src="assets/hero-local.jpg" srcset="assets/hero-local-900.jpg 900w, assets/hero-local.jpg 1400w" sizes="100vw" width="1400" height="787" alt="" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:64% 50%" />
+    </picture>
     <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,23,53,0.8) 0%,rgba(6,23,53,0.2) 45%,rgba(6,23,53,0) 75%)"></div>
     <div style="position:absolute;top:0;left:0;right:0;padding:10px 24px">
-      <img src="assets/logo-sign.png" alt="Thai Take-Away Lam-Dee Chiangrai" style="height:34px;width:auto" />
+      <img src="assets/logo-sign.png" width="181" height="34" alt="Thai Take-Away Lam-Dee Chiangrai" style="height:34px;width:auto" />
     </div>
   </div>
 </div>
-<script defer src="./bootstrap.js?v=2"></script>
 </body>
 </html>
