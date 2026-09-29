@@ -1,56 +1,33 @@
-# Koppla domänen thailamdee.se till GitHub Pages
+# Domän: thailamdee.se — LIVE ✅
 
-Repo: `hedbergsamuel/thailamdee` · Preview nu: https://hedbergsamuel.github.io/thailamdee/
+Sidan är live på **https://thailamdee.se/** (sedan 2026-09-29) via GitHub Pages
+(repo `hedbergsamuel/thailamdee`, branch `main` / root). HTTPS är påtvingat och
+certet är utfärdat. `http://` och github.io-adressen omdirigeras hit.
 
-Gör stegen **i denna ordning** — annars slutar preview-länken fungera medan DNS
-propagerar.
+## Nuvarande konfiguration
 
-## Steg 1 — Sätt DNS hos Simply (görs FÖRST)
+**GitHub Pages:** custom domain = `thailamdee.se` (satt via `CNAME`-filen i roten),
+Enforce HTTPS = på.
 
-Logga in på Simply → domänen `thailamdee.se` → DNS-inställningar.
-
-**Apex-domänen `thailamdee.se`** — lägg fyra A-poster (host = `@` eller tomt):
-
-| Typ | Namn/Host | Värde            |
-|-----|-----------|------------------|
-| A   | @         | 185.199.108.153  |
-| A   | @         | 185.199.109.153  |
-| A   | @         | 185.199.110.153  |
-| A   | @         | 185.199.111.153  |
-
-Gärna även fyra AAAA-poster (IPv6, host = `@`):
+**DNS hos Simply** (apex `thailamdee.se`), fyra A-poster:
 
 ```
-2606:50c0:8000::153
-2606:50c0:8001::153
-2606:50c0:8002::153
-2606:50c0:8003::153
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
 ```
 
-**www (rekommenderas)** — så att `www.thailamdee.se` funkar och pekar till samma sida:
+DNSSEC är på. Byt inte dessa poster utan anledning.
 
-| Typ   | Namn/Host | Värde                     |
-|-------|-----------|---------------------------|
-| CNAME | www       | hedbergsamuel.github.io.  |
+## Kvar / valfritt
 
-Ta bort ev. gamla A/AAAA/CNAME-poster för `@` och `www` som pekar någon annanstans
-(t.ex. Simplys parkeringssida).
+- **www:** lägg en CNAME hos Simply — `www` → `hedbergsamuel.github.io.` — om du vill
+  att `www.thailamdee.se` ska fungera (finns ej idag).
+- **E-post:** zonen har inga MX-poster, så `@thailamdee.se`-mejl fungerar inte.
+  Lägg till MX om ni ska ha domänmejl.
 
-## Steg 2 — Vänta på DNS
+## Uppdatera sidan i framtiden
 
-DNS tar oftast 15 min–några timmar. Kolla t.ex. med `dig thailamdee.se +short`
-(ska visa 185.199.108–111.153) innan du går vidare.
-
-## Steg 3 — Aktivera domänen (pusha CNAME)
-
-När DNS pekar rätt: pusha `CNAME`-filen (redan förberedd i repo-roten, innehåller
-`thailamdee.se`). GitHub läser den, sätter custom domain och utfärdar HTTPS-cert.
-
-```
-git push origin main
-```
-
-Kryssa sedan i **Enforce HTTPS** under repo → Settings → Pages när rutan blir grön
-(kan ta upp till ~15 min efter att domänen verifierats).
-
-Klart — sidan ligger då på https://thailamdee.se/
+Efter ändring i `.jsx`: kör `./build.sh` och bumpa `?v=N` i `index.html`, committa och
+`git push`. Det driftsätts automatiskt till thailamdee.se.
