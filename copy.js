@@ -38,10 +38,10 @@ window.LD_COPY = {
       from: "Från",
       all: "Se hela menyn",
       dishes: {
-        12: "Risnudlar wokade med ägg, böngroddar, purjolök och jordnötter.",
+        7: "Wokad med hot basilika, chili och vitlök. Lägg till stekt ägg för 10 kr.",
         10: "Röd curry med kokosmjölk, bambuskott, söt basilika och limeblad.",
         11: "Grön curry med kokosmjölk, zucchini, paprika och söt basilika.",
-        5: "Wokad med cashewnötter, paprika, morot och ostronsåsblandning."
+        12: "Risnudlar wokade med ägg, böngroddar, purjolök och jordnötter."
       }
     },
     menu: {
@@ -145,10 +145,10 @@ window.LD_COPY = {
       from: "From",
       all: "See the full menu",
       dishes: {
-        12: "Rice noodles wok-fried with egg, bean sprouts, leek and peanuts.",
+        7: "Wok-fried with holy basil, chilli and garlic. Add a fried egg for SEK 10.",
         10: "Red curry with coconut milk, bamboo shoots, sweet basil and lime leaf.",
         11: "Green curry with coconut milk, courgette, bell pepper and sweet basil.",
-        5: "Wok-fried with cashew nuts, bell pepper, carrot and oyster sauce blend."
+        12: "Rice noodles wok-fried with egg, bean sprouts, leek and peanuts."
       }
     },
     menu: {

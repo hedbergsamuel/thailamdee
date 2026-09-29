@@ -1798,18 +1798,18 @@ LD_DS["Notice"] = function (React, __DS) {
     } = window.LD_DS;
     const PhotoSlot = window.PhotoSlot;
     const Reveal = window.Reveal;
-    const order = [12, 10, 11, 5];
+    const order = [7, 10, 11, 12];
     const dishes = order.map(n => data.dishes.find(d => d.n === n)).filter(Boolean);
 
     // Riktiga foton per rätt (från /tinified).
     const dishPhoto = {
-      12: "tinified/9.webp",
-      // Pad Thai
+      7: "tinified/pad-kapao.webp",
+      // Pad Kapao
       10: "tinified/6.webp",
       // Röd curry
       11: "tinified/unnamed.webp",
       // Grön curry
-      5: "tinified/4.webp" // Cashewnötter
+      12: "tinified/9.webp" // Pad Thai
     };
     const fromPrice = d => {
       const min = Math.min.apply(null, d.prices.map(p => parseInt(p.price, 10)));
