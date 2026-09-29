@@ -2205,7 +2205,7 @@ LD_DS["Notice"] = function (React, __DS) {
       tone: "dark",
       label: t.about.imageLabel,
       alt: t.about.imageLabel,
-      src: "tinified/8.webp",
+      src: "tinified/pad-kapao.webp",
       ratio: "4 / 5"
     }))), /*#__PURE__*/React.createElement("div", {
       style: {

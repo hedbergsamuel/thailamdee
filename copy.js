@@ -64,7 +64,7 @@ window.LD_COPY = {
       eyebrow: "Om oss",
       title: "En vagn, en wok, hög värme hela dagen",
       lead: "Vi är ingen restaurang med lager och värmeskåp. Grönsakerna skärs här, woken går på hög värme från elva till stängning, och din rätt lagas först när du beställt den.",
-      imageLabel: "Nylagad Pad Thai från woken",
+      imageLabel: "Nylagad Pad Kapao med stekt ägg",
       points: [
         { t: "Allt wokas på beställning", d: "Ingenting står varmt. Du får rätten direkt ur pannan, oftast inom tio till femton minuter." },
         { t: "Du väljer protein och styrka", d: "Tofu, kyckling, biff, tigerräkor eller skaldjursmix. Fem styrkegrader, från lite stark till super stark." },
@@ -171,7 +171,7 @@ window.LD_COPY = {
       eyebrow: "About us",
       title: "One truck, one wok, high heat all day",
       lead: "We are not a restaurant with a stockroom and holding cabinets. The vegetables are cut here, the wok runs hot from eleven until closing, and your dish is cooked only once you have ordered it.",
-      imageLabel: "Fresh Pad Thai from the wok",
+      imageLabel: "Fresh Pad Kapao with fried egg",
       points: [
         { t: "Everything is cooked to order", d: "Nothing sits under a lamp. Your dish comes straight out of the pan, usually within ten to fifteen minutes." },
         { t: "You choose protein and heat", d: "Tofu, chicken, beef, tiger prawns or seafood mix. Five heat levels, from mild to super hot." },
