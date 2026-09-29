@@ -4,8 +4,3 @@
 # Python
 __pycache__/
 *.pyc
-
-# Domänen är avstängd tills sidan ska gå live på thailamdee.se.
-# Fram till dess serveras bara GitHub Pages-previewen (hedbergsamuel.github.io/thailamdee/).
-# Gå live: ta bort raden nedan, kör  printf "thailamdee.se\n" > CNAME  och committa.
-/CNAME
