@@ -99,11 +99,24 @@ window.LD_DATA = (function () {
     { value: "spicy", sv: "Spicy special", en: "Spicy special" }
   ];
 
-  const hours = [
+  /* Halloweenhelgen 2026: stängt fre 30/10, öppet lör 31/10 11–18. Gäller
+     bara till och med 31 oktober — från 1 november visas ordinarie tider. */
+  const halloween = new Date() < new Date(2026, 10, 1);
+
+  const hours = halloween ? [
+    { sv: "Tisdag–torsdag", en: "Tuesday–Thursday", time: "11.00–20.00", closed: false },
+    { sv: "Fredag 30/10", en: "Friday 30/10", timeSv: "Stängt", timeEn: "Closed", closed: true },
+    { sv: "Lördag 31/10", en: "Saturday 31/10", time: "11.00–18.00", closed: false },
+    { sv: "Söndag–måndag", en: "Sunday–Monday", timeSv: "Stängt", timeEn: "Closed", closed: true }
+  ] : [
     { sv: "Tisdag–fredag", en: "Tuesday–Friday", time: "11.00–20.00", closed: false },
     { sv: "Lördag", en: "Saturday", time: "11.00–18.00", closed: false },
     { sv: "Söndag–måndag", en: "Sunday–Monday", timeSv: "Stängt", timeEn: "Closed", closed: true }
   ];
+
+  const hoursSummary = halloween
+    ? "Tis–tors 11–20 · Fre 30/10 stängt · Lör 31/10 11–18"
+    : "Tis–fre 11–20 · Lör 11–18 · Sön–mån stängt";
 
   const place = {
     name: "Rotvik",
@@ -134,5 +147,5 @@ window.LD_DATA = (function () {
       text: "Väldigt gott. Testade fyra av deras rätter och kommer absolut handla här igen. Maten är stark enligt thailändsk standard." }
   ];
 
-  return { dishes, categories, hours, place, reviews };
+  return { dishes, categories, hours, hoursSummary, halloween, place, reviews };
 })();

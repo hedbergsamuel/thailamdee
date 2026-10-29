@@ -3078,13 +3078,15 @@ LD_DS["Notice"] = function (React, __DS) {
         5: [660, 1200],
         6: [660, 1080]
       };
-      const today = table[now.getDay()];
+      // Halloweenhelgen: fredag 30/10 är det stängt.
+      const halloweenFriday = DATA.halloween && now.getMonth() === 9 && now.getDate() === 30;
+      const today = halloweenFriday ? undefined : table[now.getDay()];
       const fmt = m => String(Math.floor(m / 60)).padStart(2, "0") + "." + String(m % 60).padStart(2, "0");
       if (!today) {
         return {
           open: false,
           time: lang === "sv" ? "Stängt" : "Closed",
-          label: lang === "sv" ? "Söndag och måndag är vagnen stängd" : "Closed Sunday and Monday"
+          label: halloweenFriday ? lang === "sv" ? "Stängt idag – öppet lördag 31/10 kl 11–18" : "Closed today – open Saturday 31/10, 11–18" : lang === "sv" ? "Söndag och måndag är vagnen stängd" : "Closed Sunday and Monday"
         };
       }
       const mins = now.getHours() * 60 + now.getMinutes();
@@ -3119,7 +3121,6 @@ LD_DS["Notice"] = function (React, __DS) {
       lineHeight: 1.4,
       color: "rgba(254,252,247,0.66)"
     };
-    const closedWord = t.hours.closed.toLowerCase();
     const contactBand = /*#__PURE__*/React.createElement("section", {
       id: "kontakt",
       className: "ld-section",
@@ -3163,7 +3164,7 @@ LD_DS["Notice"] = function (React, __DS) {
       style: bandValue
     }, os.open ? t.hero.openNow : t.hours.closed, " · ", os.time), /*#__PURE__*/React.createElement("span", {
       style: bandSub
-    }, "Tis–fre 11–20 · Lör 11–18 · Sön–mån ", closedWord)), /*#__PURE__*/React.createElement("div", {
+    }, DATA.hoursSummary)),/*#__PURE__*/React.createElement("div", {
       className: "ld-band-item"
     }, /*#__PURE__*/React.createElement("span", {
       style: bandLabel

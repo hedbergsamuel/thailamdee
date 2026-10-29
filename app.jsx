@@ -13,13 +13,17 @@ function LamDeeSite() {
   const os = (function () {
     const now = new Date();
     const table = { 2: [660, 1200], 3: [660, 1200], 4: [660, 1200], 5: [660, 1200], 6: [660, 1080] };
-    const today = table[now.getDay()];
+    // Halloweenhelgen: fredag 30/10 är det stängt.
+    const halloweenFriday = DATA.halloween && now.getMonth() === 9 && now.getDate() === 30;
+    const today = halloweenFriday ? undefined : table[now.getDay()];
     const fmt = (m) => String(Math.floor(m / 60)).padStart(2, "0") + "." + String(m % 60).padStart(2, "0");
     if (!today) {
       return {
         open: false,
         time: lang === "sv" ? "Stängt" : "Closed",
-        label: lang === "sv" ? "Söndag och måndag är vagnen stängd" : "Closed Sunday and Monday"
+        label: halloweenFriday
+          ? (lang === "sv" ? "Stängt idag – öppet lördag 31/10 kl 11–18" : "Closed today – open Saturday 31/10, 11–18")
+          : (lang === "sv" ? "Söndag och måndag är vagnen stängd" : "Closed Sunday and Monday")
       };
     }
     const mins = now.getHours() * 60 + now.getMinutes();
@@ -31,7 +35,6 @@ function LamDeeSite() {
   const bandLabel = { font: "var(--type-label)", fontSize: "var(--text-2xs)", letterSpacing: "var(--tracking-label)", textTransform: "uppercase", color: "var(--gold-400)" };
   const bandValue = { fontFamily: "var(--font-display)", fontWeight: "var(--weight-semibold)", fontSize: "clamp(20px, 1.8vw, 24px)", lineHeight: 1.15, letterSpacing: "-0.01em", color: "var(--cream-50)", textDecoration: "none" };
   const bandSub = { fontFamily: "var(--font-body)", fontSize: "var(--text-sm)", lineHeight: 1.4, color: "rgba(254,252,247,0.66)" };
-  const closedWord = t.hours.closed.toLowerCase();
 
   const contactBand = (
     <section id="kontakt" className="ld-section" style={{ background: "var(--navy-800)", borderTop: "var(--border-width-hair) solid var(--border-hairline)", borderBottom: "var(--border-width-hair) solid var(--border-hairline)" }}>
@@ -45,7 +48,7 @@ function LamDeeSite() {
           <div className="ld-band-item">
             <span style={bandLabel}>{t.hours.eyebrow}</span>
             <span style={bandValue}>{os.open ? t.hero.openNow : t.hours.closed} · {os.time}</span>
-            <span style={bandSub}>Tis–fre 11–20 · Lör 11–18 · Sön–mån {closedWord}</span>
+            <span style={bandSub}>{DATA.hoursSummary}</span>
           </div>
           <div className="ld-band-item">
             <span style={bandLabel}>{t.find.eyebrow}</span>
